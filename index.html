@@ -1,0 +1,213 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SOMPALLI RAKESH's Portfolio</title>
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+      <style>
+    :root {
+      --primary-color: #22d3ee;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --color-bg: #111827;
+      --color-text: #d1d5db;
+      --color-heading: #ffffff;
+      --color-light-text: #9ca3af;
+      --color-border: #374151;
+      --color-card-bg: #1f2937;
+      --color-skill-bg: #374151;
+      --color-skill-text: #d1d5db;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container { max-width: 56rem; margin: 0 auto; padding: 4rem 2rem; }
+
+    header { display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-bottom: 4rem; }
+    header img { width: 8rem; height: 8rem; border-radius: 9999px; object-fit: cover; box-shadow: 0 0 0 4px #111827, 0 0 0 8px var(--primary-color); }
+    header .info { text-align: center; }
+    header h1 { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--color-heading); margin: 0; }
+    header .tagline { font-size: 1.25rem; color: var(--primary-color); margin-top: 0.25rem; }
+    header .socials { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; color: var(--color-light-text); }
+    header .socials a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    header .socials a:hover { color: var(--primary-color); }
+    
+    @media (min-width: 640px) {
+      header { flex-direction: row; }
+      header .info { text-align: left; }
+      header .socials { justify-content: flex-start; }
+    }
+    
+    main { display: grid; gap: 4rem; }
+
+    .section-title {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--color-heading);
+        margin: 0 0 1.5rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary-color);
+        display: inline-block;
+    }
+    
+    #profile p { font-size: 1.125rem; line-height: 1.7; }
+    
+    #skills .skills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    #skills .skill-tag { padding: 0.25rem 0.75rem; background-color: var(--color-skill-bg); color: var(--color-skill-text); border-radius: 0.375rem; font-weight: 500; }
+    
+    #experience .experience-list { display: grid; gap: 2rem; }
+    .experience-item .header { display: flex; justify-content: space-between; align-items: baseline; }
+    .experience-item h3 { font-size: 1.25rem; font-weight: 700; color: var(--color-heading); margin:0; }
+    .experience-item .duration { font-size: 0.875rem; color: var(--color-light-text); }
+    .experience-item .company { font-size: 1rem; color: var(--primary-color); font-weight: 600; margin: 0.125rem 0; }
+    .experience-item p { margin-top: 0.5rem; }
+    
+    #projects .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .project-card { display: block; text-decoration: none; border: 1px solid var(--color-border); border-radius: 0.5rem; overflow: hidden; transition: all 0.3s; background-color: var(--color-card-bg); }
+    .project-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); border-color: var(--primary-color); }
+    .project-card img { width: 100%; height: 13rem; object-fit: cover; }
+    .project-card .info { padding: 1.25rem; }
+    .project-card h3 { font-size: 1.125rem; font-weight: bold; color: var(--color-heading); margin: 0 0 0.25rem 0; }
+    .project-card p { font-size: 0.875rem; }
+
+    #education .education-list { display: grid; gap: 1.5rem; }
+    .education-item .header { display: flex; justify-content: space-between; align-items: baseline; }
+    .education-item h3 { font-size: 1.25rem; font-weight: 700; color: var(--color-heading); margin: 0; }
+    .education-item .duration { font-size: 0.875rem; color: var(--color-light-text); }
+    .education-item .degree { font-size: 1rem; }
+    
+    #contact { text-align: center; }
+    #contact p { font-size: 1.125rem; margin-bottom: 1.5rem; }
+    #contact a.contact-button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 0.375rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--color-text);
+      background-color: transparent;
+      transition: all 0.3s ease-in-out;
+    }
+    #contact a.contact-button:hover {
+      background-color: var(--primary-color);
+      color: #000;
+    }
+
+    footer { text-align: center; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+    footer p { color: var(--color-light-text); }
+  </style>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <img src="https://drive.google.com/file/d/1Oe72RRwuZqoBKW4r3AMMexEuvYyuu15Q/view?pli=1" alt="SOMPALLI RAKESH's avatar">
+          <div class="info">
+            <h1>SOMPALLI RAKESH</h1>
+            <p class="tagline">Full Stack Developer</p>
+            <div class="socials">
+              <a href="https://github.com/sompallirakesh" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <span>&bull;</span>
+              <a href="https://www.linkedin.com/in/rakesh-sompalli-397653237/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <section id="profile"><h2 class="section-title">About Me</h2><p>A passionate creator building amazing things for the web of tomorrow. This is your chance to shine and tell your story.</p></section><section id="education"><h2 class="section-title">Education</h2><div class="education-list">
+      <div class="education-item">
+          <div class="header">
+            <h3>KL UNIVERSITY</h3>
+            <p class="duration">2023 - 2026</p>
+          </div>
+          <p class="degree">Btech</p>
+      </div>
+      <div class="education-item">
+          <div class="header">
+            <h3>NTTF</h3>
+            <p class="duration">2019-2022</p>
+          </div>
+          <p class="degree">TOOL AND DIE MAKING</p>
+      </div></div></section><section id="skills"><h2 class="section-title">Skills</h2><div class="skills-container"><span class="skill-tag">React</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Node.js</span><span class="skill-tag">UI/UX Design</span><span class="skill-tag">Framer Motion</span><span class="skill-tag">Next.js</span></div></section><section id="projects"><h2 class="section-title">Projects</h2><div class="projects-grid">
+      <a href="#" target="_blank" rel="noopener noreferrer" class="project-card">
+        <img src="https://picsum.photos/seed/neo/600/400" alt="Project Neo">
+        <div class="info">
+          <h3>Project Neo</h3>
+          <p>A revolutionary app that changes the way people interact with decentralized technology.</p>
+        </div>
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer" class="project-card">
+        <img src="https://picsum.photos/seed/cygnus/600/400" alt="Project Cygnus">
+        <div class="info">
+          <h3>Project Cygnus</h3>
+          <p>An innovative platform for creative professionals to showcase their work in immersive 3D.</p>
+        </div>
+      </a>
+      <a href="" target="_blank" rel="noopener noreferrer" class="project-card">
+        <img src="https://picsum.photos/seed/new/600/400" alt="New Project">
+        <div class="info">
+          <h3>New Project</h3>
+          <p></p>
+        </div>
+      </a>
+      <a href="" target="_blank" rel="noopener noreferrer" class="project-card">
+        <img src="https://picsum.photos/seed/new/600/400" alt="New Project">
+        <div class="info">
+          <h3>New Project</h3>
+          <p></p>
+        </div>
+      </a>
+      <a href="" target="_blank" rel="noopener noreferrer" class="project-card">
+        <img src="https://picsum.photos/seed/new/600/400" alt="New Project">
+        <div class="info">
+          <h3>New Project</h3>
+          <p></p>
+        </div>
+      </a></div></section><section id="experience"><h2 class="section-title">Experience</h2><div class="experience-list">
+      <div class="experience-item">
+        <div class="header">
+            <h3>Frontend Engineer</h3>
+            <p class="duration">2026 </p>
+        </div>
+        <p class="company">KL UNIVERSITY</p>
+        <p>Engineered and maintained hyper-responsive web applications using bleeding-edge technologies, boosting user engagement by 30%.</p>
+      </div>
+      <div class="experience-item">
+        <div class="header">
+            <h3>Backend Developer</h3>
+            <p class="duration">2026</p>
+        </div>
+        <p class="company">KL UNIVERSITY</p>
+        <p>Backend Developer</p>
+      </div></div></section>
+          
+          
+            <section id="contact">
+              <h2 class="section-title">Get In Touch</h2>
+              <p>Have a question or want to work together?</p>
+              <a href="mailto:rakeshsompalli89@gmail.com" class="contact-button">Say Hello</a>
+            </section>
+          
+        </main>
+
+        <footer>
+          <p>Designed with Portverse</p>
+        </footer>
+      </div>
+    </body>
+    </html>
+  
